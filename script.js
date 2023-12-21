@@ -1,53 +1,51 @@
-window.onload = function(){
-let sec = 00;
-let nsei= 00;
- let nseic = document.getElementById("nsei");
- let secc = document.getElementById("sec");
+window.onload = () =>{
+  let segundosAtuais = 0;
+  let millisegundosAtuais = 0;
 
- let stopbutton = document.getElementById("stop");
- let startbutton = document.getElementById("start");
- let resetbutton = document.getElementById("reset");
-let Interval;
+  const spanSegundos = document.getElementById("span-segundos");
+  const spanMillisegundos = document.getElementById("span-millisegundos");
 
-startbutton.onclick = function(){
+  const stopbutton = document.getElementById("stop");
+  const startbutton = document.getElementById("start");
+  const resetbutton = document.getElementById("reset");
+  let Interval;
 
+  startbutton.onclick = () => {
     clearInterval(Interval);
- Interval = setInterval(startTimer,10)
-}
+    Interval = setInterval(startTimer,10)
+  }
 
-stopbutton.onclick = function() {
+  stopbutton.onclick = () => {
+      clearInterval(Interval);
+  }
+
+  resetbutton.onclick = () => {
     clearInterval(Interval);
-}
+    const initial = "00";
+    spanSegundos.innerHTML = initial;
+    spanMillisegundos.innerHTML = initial;
+    segundosAtuais = 0;
+    millisegundosAtuais = 0;
+  }
 
+  function startTimer(){
+    millisegundosAtuais++;
 
-resetbutton.onclick = function() {
-  clearInterval(Interval);
- nsei = "00";
-   sec = "00";
- nseic.innerHTML = nsei;
-   secc.innerHTML = sec;
-}
+    if(millisegundosAtuais <= 9){
+      spanMillisegundos.innerHTML = "0" + millisegundosAtuais;
+    }
+    if (millisegundosAtuais > 9){
+      spanMillisegundos.innerHTML = millisegundosAtuais;
+    }
+    if (millisegundosAtuais > 99) {
+      segundosAtuais++;
+      spanSegundos.innerHTML = "0" + segundosAtuais;
+      millisegundosAtuais = 0;
+      spanMillisegundos.innerHTML = "0" + 0;
+    }
+    if (segundosAtuais > 9){
+      spanSegundos.innerHTML = segundosAtuais;
+    }
+  }
 
-function startTimer(){
-    nsei++;
-    if(nsei <= 9){
-        nseic.innerHTML = "0" + nsei;
-      }
-      
-      if (nsei > 9){
-        nseic.innerHTML = nsei;
-        
-      } 
-      if (nsei > 99) {
-        console.log("sec");
-        sec++;
-        secc.innerHTML = "0" + sec;
-        nsei = 0;
-        nseic.innerHTML = "0" + 0;
-      }
-
-      if (sec > 9){
-        secc.innerHTML = sec;
-      }
-}
 }

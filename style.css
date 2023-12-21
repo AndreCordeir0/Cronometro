@@ -1,27 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap');
+
 *{
     margin: 0;
-    background: #ffbf00;
-    
+    background: #000;
 }
+
 h1{
     color: white;
     text-align: center;
     padding-top: 30px;
 }
+
 p{
     text-align: center;
     align-items: center;    
     padding-top: 80px;
     font-size: 60px;
     color: white;
-    font-family: 'Courier New', Courier, monospace;
+    font-family: 'Roboto', Courier, monospace;
 }
+
 button{
     text-align: center;
     align-items: center;
-    left: 420px;
-    top: 120px;
-    position: relative;
     height: 50px;
     width: 150px;
     border-radius: 5px;
@@ -29,8 +30,21 @@ button{
     border-style:solid;
     border-width: 2px;
     margin: 0 15px;
+    color: white;
 }
+
 button:hover{
     transform: scale(1.03);
-    cursor: pointer;;
+    cursor: pointer;
+    background: white;
+    color: black;
+    transition: all 0.2s linear;
+}
+
+.buttons-container{
+    padding-top: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
 }
